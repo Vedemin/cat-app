@@ -37,12 +37,16 @@ import { ModalWindowComponent } from './site-body/offer/dishes/modal-window/moda
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { StarRatingComponent } from './site-body/offer/dishes/modal-window/star-rating/star-rating.component'
 import { GoogleMapsModule } from '@angular/google-maps';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { DishesManagerComponent } from './dishes-manager/dishes-manager.component';
 
 const appRoute : Routes = [
   {path: 'Basket', component: BasketComponent},
   {path: 'Menu', component: OfferComponent},
   {path: '', component: HomeComponent},
-  {path: 'Dish/:id', component: ModalWindowComponent}
+  {path: 'Dish/:id', component: ModalWindowComponent},
+  {path: 'AdminPanel', component: AdminPanelComponent},
+  {path: 'DishesManager', component: DishesManagerComponent}
 ]
 
 @NgModule({
@@ -66,7 +70,9 @@ const appRoute : Routes = [
     UserBasketTileComponent,
     LoginPopupComponent,
     ModalWindowComponent,
-    StarRatingComponent
+    StarRatingComponent,
+    AdminPanelComponent,
+    DishesManagerComponent
   ],
   imports: [
     CommonModule,

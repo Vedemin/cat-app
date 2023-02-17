@@ -17,7 +17,7 @@ export class DishesComponent {
   setOfUnavailable = new Set<string>()
   @Output() listUpdate = new EventEmitter();
 
-  constructor(public dishListService: DishListServiceService, public basketService : BasketServiceService ) {
+  constructor(public dishListService: DishListServiceService ) {
   }
 
   sortList() {
@@ -62,14 +62,12 @@ export class DishesComponent {
    }
 
     this.listUpdate.emit(true)
-    this.basketService.updateDish($event.key,this.dishListService.getDish($event.key).name, this.dishListService.getDish($event.key).ordered, this.dishListService.getDish($event.key).price, this.selectedCurrency||'USD')
   }
   deleteCard($event: any) {
     const db = getDatabase();
     const tasksRef = ref(db, "/dishes/"+ $event.key);
     remove(tasksRef).then(() => {
       this.dishListService.deleteDish($event.key)
-      this.basketService.deleteFromBasket($event.name)
     });
   }
 }

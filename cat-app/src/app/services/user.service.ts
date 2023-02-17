@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { getDatabase, ref, remove, update } from "firebase/database";
+import { get, getDatabase, ref, remove, update } from "firebase/database";
+import { DishListServiceService } from './dish-list-service.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class UserService {
   login = ""
   userType: string
   basket = {}
-  previousBaskets: any
+  previousBaskets = []
   totalPrice = "0"
   inBasket = 0
   multiplier = 1.0
@@ -19,7 +20,7 @@ export class UserService {
   // EUR -> EUR: 1.00
   // EUR -> USD: 1.06
 
-  constructor() { }
+  constructor(private dishListService: DishListServiceService) { }
 
   setUserDatabase(usersBase: any) {
     this.userDataBase = usersBase
@@ -65,15 +66,22 @@ export class UserService {
     }
   }
 
-  register(name: string, password: string) {
+  register(name: string, password: string, email: string) {
     if (!(name in this.userDataBase)) {
-      this.userDataBase[name] = {
+      let data = {
+        banned: false,
         password: password,
+        email: email,
         userType: "client",
         basket: {},
         previousBaskets: []
       }
+      this.userDataBase[name] = data
+      const db = getDatabase();
+      const userRef = ref(db, "/users/");
+      update(userRef, { [name] : data })
       this.calculateTotalPrice()
+      this.logIn(name, password)
       return true
     } else {
       alert("This user already exists, please log in instead")
@@ -127,10 +135,24 @@ export class UserService {
   }
 
   buy() {
-    let order = []
+    const date = new Date().toJSON();
+    this.previousBaskets.push([this.basket, date])
+    const db = getDatabase();
     for (let d in this.basket) {
-      order.push([d, this.basket[d].amount, this.basket[d].price])
+      let iS = this.dishListService.getDish(d).inStock
+      const dishRef = ref(db, "/dishes/"+ d);
+      update(dishRef, {"inStock": iS - this.basket[d].amount})
+      this.dishListService.modDish(d, "inStock", iS - this.basket[d].amount)
     }
+
+    if (this.loggedIn) {
+      const userRef = ref(db, "/users/"+ this.login);
+      
+      update(userRef, {"basket": {}, "previousBaskets": this.previousBaskets})
+    }
+
+    this.basket = {}
+    this.calculateTotalPrice()
   }
 
   currency(curre: string) {
@@ -144,10 +166,8 @@ export class UserService {
   updateBasket(){
     if (this.loggedIn) {
       const db = getDatabase();
-      console.log(db)
-      const tasksRef = ref(db, "/users/"+ this.login);
-      console.log(tasksRef)
-      update(tasksRef, {"basket": this.basket})
+      const userRef = ref(db, "/users/"+ this.login);
+      update(userRef, {"basket": this.basket})
     }
   }
 }

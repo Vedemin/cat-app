@@ -220,6 +220,7 @@
   "users": {
     "admin": {
       "password": "admin",
+      "mail": "admin@gmail.com",
       "userType": "admin",
       "basket": {},
       "previousBaskets": [],
@@ -227,6 +228,7 @@
     },
     "carlos": {
       "password": "carlos",
+      "mail": "carlos@gmail.com",
       "userType": "manager",
       "basket": {},
       "previousBaskets": [],
@@ -234,6 +236,7 @@
     },
     "antonio": {
       "password": "antonio",
+      "mail": "antonio@gmail.com",
       "userType": "client",
       "basket": {},
       "previousBaskets": [],

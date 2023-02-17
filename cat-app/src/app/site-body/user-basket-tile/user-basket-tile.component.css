@@ -15,7 +15,7 @@
   text-align: center;
 }
 
-#lBts {
+.lBts {
   display: block;
   float: left;
   width: 100px;
@@ -72,9 +72,9 @@
 
 #alp {
   position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  right: 0;
+  top: 70px;
+  /* transform: translate(-50%, -50%); */
 }
 
 .eurButton,

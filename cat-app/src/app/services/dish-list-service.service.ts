@@ -13,6 +13,11 @@ export class DishListServiceService implements OnInit {
   ngOnInit(): void {
     this.dishes = {}
   }
+
+  modDish(name: string, parameter: string, value: any) {
+    this.dishes[name][parameter] = value
+  }
+
   setDishes(dishes: any){
     console.log("Attempting dish update")
     this.dishes = dishes

@@ -42,8 +42,8 @@ export class SiteBodyComponent implements OnInit {
       this.dishList.setDishes({...dishList, ...this.dishList.getDishes()})
     })
     var userList;
-    const users = ref(database, 'users')
-    onValue(users, (snapshot) => {
+    const userRef = ref(database, 'users')
+    onValue(userRef, (snapshot) => {
       userList = snapshot.val();
       this.userService.setUserDatabase({...userList, ...this.userService.getUserDatabase()})
     })

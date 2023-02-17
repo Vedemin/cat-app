@@ -1,6 +1,5 @@
 <div>
   <span *ngFor="let star of stars; let i = index" (click)="setRating(i + 1)">
-    <!-- <fa-icon icon="star" size="sm" [class.active]="i < rating"></fa-icon> -->
     {{ i < rating ? "★" : "☆" }}
   </span>
 </div>

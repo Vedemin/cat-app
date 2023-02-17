@@ -1,7 +1,8 @@
 #home_container {
-  background-image: url("https://wallpapercave.com/wp/wp4289147.jpg");
+  background-image: url("https://a-static.besthdwallpaper.com/a-delicious-italian-mixed-pizza-standing-on-the-wooden-table-with-tomato-on-the-side-wallpaper-2560x1080-96257_14.jpg");
   height: 1080px;
   width: 100%;
-  text-align: center;
+  text-align: left;
+  padding: 20px;
   color: white;
 }

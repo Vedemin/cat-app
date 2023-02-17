@@ -17,8 +17,10 @@ export class UserBasketTileComponent {
 
  showLogin() {
   this.loginVisible = !this.loginVisible
-  console.log("A")
-  // document.getElementById("alp").style.display = "block"
+ }
+
+ logOut() {
+  this.userService.logOut()
  }
 
 }

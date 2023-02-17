@@ -1,9 +1,35 @@
 <div class="basket_container">
-  <div class="row">
-    Basket: {{ userService.inBasket }}
-    <div id="header">
-      <!-- <span>Product</span><span>Quantity</span><span>Price</span
-      ><span>Currency</span><span>Total</span> -->
-    </div>
-  </div>
+  <h2>Basket: {{ this.userService.inBasket }}</h2>
+  <span class="row" *ngFor="let dish of this.userService.basket | keyvalue">
+    <h3>{{ dish.key }}</h3>
+    <p>
+      {{ this.userService.basket[dish.key].amount }}x
+      {{
+        this.userService.basket[dish.key].price * this.userService.multiplier
+      }}
+      {{ this.userService.curr }}
+    </p>
+    <p>
+      Total:
+      {{
+        this.userService.basket[dish.key].price *
+          this.userService.basket[dish.key].amount *
+          this.userService.multiplier
+      }}
+      {{ this.userService.curr }}
+    </p>
+  </span>
+  <br />
+  <button id="buyButton" (click)="this.userService.buy()">Buy order</button>
+  <br />
+  <br />
+  <h2>Previous purchases:</h2>
+  <span class="row" *ngFor="let prev of this.userService.previousBaskets">
+    <h3>Date: {{ prev[1] | date }}</h3>
+    <ul>
+      <li *ngFor="let purchase of prev[0] | keyvalue">
+        {{ purchase.key }}
+      </li>
+    </ul>
+  </span>
 </div>

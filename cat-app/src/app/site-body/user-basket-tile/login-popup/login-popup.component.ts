@@ -12,11 +12,24 @@ export class LoginPopupComponent {
 
   }
 
+  validateEmail(email){
+    return String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+  };
+
   register(){
     let name = (<HTMLInputElement>document.getElementById("nameInput")).value
     let pass = (<HTMLInputElement>document.getElementById("passInput")).value
-    let success: boolean
-    success = this.userService.register(name, pass)
+    let mail = (<HTMLInputElement>document.getElementById("mailInput")).value
+    if (this.validateEmail(mail)){
+      let success = this.userService.register(name, pass, mail)
+      alert("Successfuly registered user")
+    } else {
+      alert("Mail incorrect")
+    }
   }
   
   login(){

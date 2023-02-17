@@ -1,3 +1,6 @@
 .basket_container {
   padding: 30px;
+  width: 400px;
+  margin: auto;
+  overflow: auto;
 }
