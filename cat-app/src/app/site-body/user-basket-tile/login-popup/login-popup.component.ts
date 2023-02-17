@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -7,6 +7,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./login-popup.component.css']
 })
 export class LoginPopupComponent {
+  @Input() visibility: boolean
   constructor(public userService: UserService) {
 
   }

@@ -16,7 +16,9 @@ export class UserBasketTileComponent {
  }
 
  showLogin() {
-  document.getElementById("alp").style.display = "block"
+  this.loginVisible = !this.loginVisible
+  console.log("A")
+  // document.getElementById("alp").style.display = "block"
  }
 
 }

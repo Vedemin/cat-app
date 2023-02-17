@@ -23,11 +23,11 @@ export class DishCardComponent {
   @Output() orderUpdate = new EventEmitter();
   isPlusButtonVisible : boolean ;
   isMinusButtonVisible : boolean ;
-  @Input() isMaximumPrice: boolean; //TODO implements mechanism to change if dish is out
-  @Input() isMinimumPrice: boolean; //TODO implements mechanism to change if dish is out
+  @Input() isMaximumPrice: boolean;
+  @Input() isMinimumPrice: boolean;
   @Output() deleteEmitter = new EventEmitter()
   starRating: number;
-  constructor(private router: Router, private userService: UserService) {}
+  constructor(private router: Router, public userService: UserService) {}
 
   ngOnInit() {
     this.name = this.dish.key
@@ -74,10 +74,11 @@ export class DishCardComponent {
   }
   deleteComponent() {
     console.log("Attempting to delete")
-    this.deleteEmitter.emit({key:this.key, ordered:this.dish.value.ordered, name:this.dish.key})
+    this.deleteEmitter.emit({key:this.name, ordered:this.dish.value.ordered, name:this.dish.key})
   }
 
   onClick() {
-    this.router.navigate(['Dish', this.key])
+    console.log(this.name)
+    this.router.navigate(['Dish', this.name])
   }
 }

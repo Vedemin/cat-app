@@ -12,7 +12,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FilterComponent } from './site-body/offer/filter/filter.component';
 import { Routes, RouterModule } from '@angular/router';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
@@ -32,12 +32,16 @@ import { MealTypeFilterPipe } from './pipes/meal-type-filter.pipe';
 import { HomeComponent } from './site-body/home/home.component';
 import { BasketComponent } from './site-body/basket/basket.component';
 import { UserBasketTileComponent } from './site-body/user-basket-tile/user-basket-tile.component';
-import { LoginPopupComponent } from './site-body/user-basket-tile/login-popup/login-popup.component'
+import { LoginPopupComponent } from './site-body/user-basket-tile/login-popup/login-popup.component';
+import { ModalWindowComponent } from './site-body/offer/dishes/modal-window/modal-window.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { StarRatingComponent } from './site-body/offer/dishes/modal-window/star-rating/star-rating.component'
 
 const appRoute : Routes = [
   {path: 'Basket', component: BasketComponent},
   {path: 'Menu', component: OfferComponent},
-  {path: '', component: HomeComponent}
+  {path: '', component: HomeComponent},
+  {path: 'Dish/:id', component: ModalWindowComponent}
 ]
 
 @NgModule({
@@ -59,7 +63,9 @@ const appRoute : Routes = [
     HomeComponent,
     BasketComponent,
     UserBasketTileComponent,
-    LoginPopupComponent
+    LoginPopupComponent,
+    ModalWindowComponent,
+    StarRatingComponent
   ],
   imports: [
     CommonModule,
@@ -69,6 +75,7 @@ const appRoute : Routes = [
     AppRoutingModule,
     NgbModule,
     FormsModule,
+    ReactiveFormsModule,
     NgMultiSelectDropDownModule.forRoot(),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
@@ -76,7 +83,8 @@ const appRoute : Routes = [
     RouterModule.forRoot(appRoute),
     AngularFireModule,
     AngularFireDatabaseModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

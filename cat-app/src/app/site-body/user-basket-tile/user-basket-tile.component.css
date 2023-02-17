@@ -45,6 +45,8 @@
 
 .basketButton {
   float: left;
+  width: 100px;
+  height: 25px;
 }
 
 .itemCount {
@@ -72,6 +74,11 @@
   position: fixed;
   left: 50%;
   top: 50%;
-  visibility: hidden;
   transform: translate(-50%, -50%);
+}
+
+.eurButton,
+.usdButton {
+  height: 25px;
+  width: 50px;
 }

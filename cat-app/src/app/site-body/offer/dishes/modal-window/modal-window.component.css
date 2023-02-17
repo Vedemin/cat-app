@@ -1,0 +1,50 @@
+#modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: relative;
+  align-items: center;
+  padding: 20px;
+}
+.frame {
+  padding: 30px;
+  background-color: antiquewhite;
+  width: 800px;
+  border-radius: 2%;
+}
+
+img {
+  max-width: 30vw;
+}
+
+.quantity_label {
+  display: flex;
+  justify-content: space-around;
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+  padding: 2%;
+}
+
+button {
+  padding: 1%;
+  border: none;
+  background-color: #ecffff;
+  margin: 2%;
+}
+
+#submit_button {
+  background-color: cadetblue;
+  padding: 2%;
+  border-radius: 50%;
+}
+
+.rating {
+  display: flex;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

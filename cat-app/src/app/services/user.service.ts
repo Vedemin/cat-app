@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { getDatabase, ref, remove, update } from "firebase/database";
 
 @Injectable({
   providedIn: 'root'
@@ -8,11 +9,15 @@ export class UserService {
   loggedIn = false
   userDataBase: any
   login = ""
-  isAdmin: boolean
+  userType: string
   basket = {}
   previousBaskets: any
   totalPrice = "0"
   inBasket = 0
+  multiplier = 1.0
+  curr = "EUR"
+  // EUR -> EUR: 1.00
+  // EUR -> USD: 1.06
 
   constructor() { }
 
@@ -29,12 +34,21 @@ export class UserService {
     console.log(name)
     console.log(this.userDataBase)
     if (name in this.userDataBase) {
-      this.login = name
-      this.isAdmin = this.userDataBase[name].isAdmin
-      this.basket = this.userDataBase[name].basket
-      this.previousBaskets = this.userDataBase[name].previousBaskets
-      this.loggedIn = true
-      console.log(this.loggedIn)
+      if (password == this.userDataBase[name].password) {
+        this.login = name
+        this.userType = this.userDataBase[name].userType
+        this.basket = this.userDataBase[name].basket
+        if (this.basket == undefined)
+          this.basket = {}
+        this.previousBaskets = this.userDataBase[name].previousBaskets
+        if (this.previousBaskets == undefined)
+          this.previousBaskets = []
+        this.loggedIn = true
+        console.log(this.loggedIn)
+        this.calculateTotalPrice()
+      } else {
+        alert("Wrong password")
+      }
     } else {
       alert("This username does not exist!")
     }
@@ -43,10 +57,11 @@ export class UserService {
   logOut() {
     if (this.login != "") {
       this.login = ""
-      this.isAdmin = false
+      this.userType = "guest"
       this.basket = {}
       this.previousBaskets = []
       this.loggedIn = false
+      this.calculateTotalPrice()
     }
   }
 
@@ -54,10 +69,11 @@ export class UserService {
     if (!(name in this.userDataBase)) {
       this.userDataBase[name] = {
         password: password,
-        isAdmin: false,
+        userType: "client",
         basket: {},
         previousBaskets: []
       }
+      this.calculateTotalPrice()
       return true
     } else {
       alert("This user already exists, please log in instead")
@@ -88,6 +104,7 @@ export class UserService {
     }
     this.calculateTotalPrice()
     console.log(this.basket)
+    this.updateBasket()
   }
 
   removeFromBasket(name: string) {
@@ -95,11 +112,13 @@ export class UserService {
       if (this.basket[name].amount > 1) {
         this.basket[name].amount -= 1
         this.calculateTotalPrice()
+        this.updateBasket()
         return this.basket[name].amount
       } else {
         delete this.basket[name]
         this.calculateTotalPrice()
         console.log(this.basket)
+        this.updateBasket()
         return 0
       }
     } else {
@@ -111,6 +130,24 @@ export class UserService {
     let order = []
     for (let d in this.basket) {
       order.push([d, this.basket[d].amount, this.basket[d].price])
+    }
+  }
+
+  currency(curre: string) {
+    this.curr = curre
+    if (curre == 'USD')
+      this.multiplier = 1.06
+    else
+      this.multiplier = 1
+  }
+
+  updateBasket(){
+    if (this.loggedIn) {
+      const db = getDatabase();
+      console.log(db)
+      const tasksRef = ref(db, "/users/"+ this.login);
+      console.log(tasksRef)
+      update(tasksRef, {"basket": this.basket})
     }
   }
 }

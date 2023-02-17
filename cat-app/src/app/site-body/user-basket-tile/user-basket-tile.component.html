@@ -13,7 +13,14 @@
       </div>
       <div class="basketControls">
         <button class="basketButton" routerLink="Basket">Basket</button>
-        <div class="currencySelector"></div>
+        <div class="currencySelector">
+          <button class="eurButton" (click)="this.userService.currency('EUR')">
+            EUR
+          </button>
+          <button class="usdButton" (click)="this.userService.currency('USD')">
+            USD
+          </button>
+        </div>
       </div>
     </div>
     <div id="lBts">
@@ -36,14 +43,19 @@
       </div>
       <div class="basketControls">
         <button class="basketButton" routerLink="Basket">Basket</button>
-        <div class="currencySelector"></div>
+        <div class="currencySelector">
+          <button class="eurButton" (click)="this.userService.currency('EUR')">
+            EUR
+          </button>
+          <button class="usdButton" (click)="this.userService.currency('USD')">
+            USD
+          </button>
+        </div>
       </div>
     </div>
   </div>
 </div>
 <app-login-popup
-  [ngStyle]="{
-    display: this.userService.loggedIn ? 'block' : 'none'
-  }"
   id="alp"
+  [visibility]="this.loginVisible || this.userService.loggedIn"
 ></app-login-popup>

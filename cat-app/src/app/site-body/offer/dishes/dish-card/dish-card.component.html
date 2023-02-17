@@ -7,10 +7,20 @@
     src="{{ photo_links[0] }}"
     alt="photo"
   />
-  <span class="price_span">{{ dish.value.price | number : "1.2-2" }} EUR</span>
+  <span class="price_span"
+    >{{ dish.value.price * this.userService.multiplier | number : "1.2-2" }}
+    {{ this.userService.curr }}</span
+  >
   <div class="inStock_label">
     <span>In stock: {{ dish.value.inStock }}</span>
-    <span>In basket: {{ 0 }}</span>
+    <span
+      >In basket:
+      {{
+        this.userService.basket.hasOwnProperty(dish.key)
+          ? this.userService.basket[dish.key].amount
+          : 0
+      }}</span
+    >
     <button
       class="minus_button"
       (click)="onMinusClick()"

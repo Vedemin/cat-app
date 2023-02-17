@@ -1,0 +1,141 @@
+<div id="modal">
+  <div class="frame">
+    <ngb-carousel *ngIf="dishListService.getDish(this.idOfDish).photo_links">
+      <ng-template
+        ngbSlide
+        *ngFor="
+          let img of dishListService.getDish(this.idOfDish).photo_links;
+          let i = index
+        "
+      >
+        <div class="picsum-img-wrapper">
+          <img
+            [src]="dishListService.getDish(this.idOfDish).photo_links[i]"
+            alt="{{ this.idOfDish }}"
+          />
+        </div>
+      </ng-template>
+      <!-- <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img [src]="dishListService.getDish(this.idOfDish).photo_links[1]" alt="Random second slide" />
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img [src]="dishListService.getDish(this.idOfDish).photo_links[2]" alt="Random third slide" />
+        </div>
+      </ng-template> -->
+    </ngb-carousel>
+    <!-- <img
+      class="img-fluid"
+      src="{{ dishListService.getDish(this.idOfDish).photo_links[0] }}"
+      alt="photo"
+    /> -->
+    <h1>{{ this.idOfDish | titlecase }}</h1>
+    <h3>Type of meal: {{ dishListService.getDish(this.idOfDish).type }}</h3>
+    <h5>
+      Cuisine type:
+      {{ dishListService.getDish(this.idOfDish).cuisine | titlecase }}
+    </h5>
+    <p>
+      Meat inclusion:
+      {{ dishListService.getDish(this.idOfDish).meat }}
+    </p>
+    <p>Ingredients:</p>
+    <ul
+      *ngFor="
+        let ingredient of dishListService.getDish(this.idOfDish).ingredients
+      "
+    >
+      <li>{{ ingredient }}</li>
+    </ul>
+    <p>Description: {{ dishListService.getDish(this.idOfDish).description }}</p>
+    <p>
+      Price:
+      {{ dishListService.getDish(this.idOfDish).price }}
+    </p>
+    <div class="quantity_label">
+      <p>Quantity: {{ dishListService.getDish(this.idOfDish).inStock }}</p>
+    </div>
+    <div class="buttons">
+      <button
+        (click)="onPlusClick()"
+        [disabled]="!isPlusButtonVisible()"
+        class="plus_button"
+      >
+        +
+      </button>
+      <button
+        (click)="onMinusClick()"
+        [disabled]="!isMinusButtonVisible()"
+        class="minus_button"
+      >
+        -
+      </button>
+    </div>
+  </div>
+
+  <!-- <div id="rating">
+    <app-star-rating></app-star-rating>
+    <button>Review it!</button>
+    <form [formGroup]="review_form" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col">
+          <label for="nick">Nick</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nick"
+            formControlName="nick"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="dishName">Topic</label>
+          <input
+            type="text"
+            class="form-control"
+            id="dishName"
+            formControlName="topic"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="date">Date</label>
+          <input
+            type="date"
+            class="form-control"
+            id="date"
+            formControlName="date"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="rev">Review</label>
+          <textarea
+            class="form-control"
+            id="rev"
+            formControlName="review"
+            rows="5"
+          ></textarea>
+        </div>
+      </div>
+      <button id="submit_button" type="submit">Send</button>
+    </form>
+  </div> -->
+</div>
+
+<!-- <div id="reviews">
+  <ng-container *ngFor="let review_ of reviews">
+    <div id="review_">
+      <div id="review_header">{{ review_["nick"] }} {{ review_["topic"] }}</div>
+      <div id="review content">
+        {{ review_["date"] }}
+        {{ review_["review"] }}
+      </div>
+    </div>
+  </ng-container>
+</div> -->

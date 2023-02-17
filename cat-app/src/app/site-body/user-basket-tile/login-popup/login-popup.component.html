@@ -1,4 +1,9 @@
-<div id="loginPopup">
+<div
+  id="loginPopup"
+  [ngStyle]="{
+    display: this.visibility && !this.userService.loggedIn ? 'block' : 'none'
+  }"
+>
   <label for="nameInput">Name:</label>
   <input id="nameInput" type="text" />
   <label for="passInput">Password:</label>

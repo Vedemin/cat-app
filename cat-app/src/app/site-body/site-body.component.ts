@@ -29,7 +29,7 @@ const firebaseConfig = {
 })
 export class SiteBodyComponent implements OnInit {
   app: any
-  constructor(private dishList: DishListServiceService, private userService: UserService) {
+  constructor(private dishList: DishListServiceService, public userService: UserService) {
   }
   ngOnInit() {
     this.app = initializeApp(firebaseConfig)

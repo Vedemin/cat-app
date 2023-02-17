@@ -20,12 +20,6 @@ export class DishesComponent {
   constructor(public dishListService: DishListServiceService, public basketService : BasketServiceService ) {
   }
 
-  // ngOnInit(){
-  //   console.log("Dishes loaded!")
-  //   this.dishList_filtered = this.dishListService.getDishes()
-  //   console.log(this.dishList_filtered)
-  // }
-
   sortList() {
     const arrayObject = this.dishList_filtered.map(dish => dish.value)
     return arrayObject.filter(x =>{return !this.setOfUnavailable.has(x['name'])}).sort((a, b) => ((Number(a['price'])) < (Number(b['price']))) ? -1 : 1)
