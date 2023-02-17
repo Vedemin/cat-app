@@ -36,6 +36,7 @@ import { LoginPopupComponent } from './site-body/user-basket-tile/login-popup/lo
 import { ModalWindowComponent } from './site-body/offer/dishes/modal-window/modal-window.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { StarRatingComponent } from './site-body/offer/dishes/modal-window/star-rating/star-rating.component'
+import { GoogleMapsModule } from '@angular/google-maps';
 
 const appRoute : Routes = [
   {path: 'Basket', component: BasketComponent},
@@ -71,6 +72,7 @@ const appRoute : Routes = [
     CommonModule,
     NgxPaginationModule,
     BrowserModule,
+    GoogleMapsModule,
     MatSliderModule,
     AppRoutingModule,
     NgbModule,

@@ -24,7 +24,7 @@
     <button
       class="minus_button"
       (click)="onMinusClick()"
-      [disabled]="!this.isMinusButtonVisible"
+      [disabled]="!this.userService.basket.hasOwnProperty(dish.key)"
     >
       -
     </button>
