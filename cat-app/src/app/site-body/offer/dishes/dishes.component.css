@@ -1,0 +1,28 @@
+#dishes_container {
+  display: block;
+  float: left;
+  background: linear-gradient(
+    90deg,
+    rgba(50, 150, 50, 1) 0%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(150, 50, 50, 1) 100%
+  );
+  width: 85%;
+  height: 1080px;
+}
+
+.dc {
+  width: 33%;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+}
+
+.pag {
+  width: 100%;
+  text-align: center;
+}

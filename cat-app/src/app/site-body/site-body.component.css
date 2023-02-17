@@ -1,0 +1,25 @@
+.navbar {
+  padding: 1%;
+  border-bottom: 2px solid black;
+}
+
+.navbar:first-child {
+  padding: 0;
+}
+
+a {
+  border-right: 2px solid black;
+  height: 70px;
+  font-size: xx-large;
+}
+.logo_img {
+  height: 60px;
+  width: auto;
+  margin: 5px;
+}
+#view_container {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}

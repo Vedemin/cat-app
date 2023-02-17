@@ -1,0 +1,88 @@
+<div id="filter_container">
+  <div id="search_labels">
+    <h5>Search:</h5>
+    <input
+      id="search_field"
+      type="text"
+      [(ngModel)]="query"
+      (ngModelChange)="onSearchChange()"
+    />
+  </div>
+
+  <div id="filter_list">
+    <label for="type_of_dish">Type of meal</label>
+    <ng-multiselect-dropdown
+      id="type_of_dish"
+      [data]="this.getTypeOfMeal()"
+      [(ngModel)]="mealType"
+      [settings]="dropdownSettingsMealType"
+      (onSelect)="onSelectTypeOfDish()"
+      (onSelectAll)="onSelectAllTypeOfDish()"
+      (onDeSelect)="onDeSelectTypeOfDish()"
+      (onDeSelectAll)="onSelectTypeOfDish()"
+    ></ng-multiselect-dropdown>
+    <label for="type_of_cuisine">Cuisine</label>
+    <ng-multiselect-dropdown
+      id="type_of_cuisine"
+      [data]="this.getTypeOfCuisine()"
+      [(ngModel)]="cuisine"
+      [settings]="dropdownSettingsMealType"
+      (onSelect)="onSelectTypeOfCuisine()"
+      (onSelectAll)="onSelectAllTypeOfCuisine()"
+      (onDeSelect)="onDeSelectTypeOfCuisine()"
+      (onDeSelectAll)="onSelectTypeOfCuisine()"
+    ></ng-multiselect-dropdown>
+    <label for="type_of_meat">Meat</label>
+    <ng-multiselect-dropdown
+      id="type_of_meat"
+      [data]="this.getMeatInclusion()"
+      [(ngModel)]="meat"
+      [settings]="dropdownSettingsMealType"
+      (onSelect)="onSelectMeatInclusion()"
+      (onSelectAll)="onSelectAllMeatInclusion()"
+      (onDeSelect)="onDeSelectMeatInclusion()"
+      (onDeSelectAll)="onSelectMeatInclusion()"
+    ></ng-multiselect-dropdown>
+    <label for="price_slider"
+      >Price from: {{ minPrice }} to {{ maxPrice }}</label
+    ><br />
+    <mat-slider
+      id="price_slider"
+      [min]="getMinPrice()"
+      [max]="getMaxPrice()"
+      step="1"
+    >
+      <input
+        matSliderStartThumb
+        [(ngModel)]="minPrice"
+        (ngModelChange)="onSelectMinValue()"
+      />
+      <input
+        matSliderEndThumb
+        [(ngModel)]="maxPrice"
+        (ngModelChange)="onSelectMaxValue()"
+      />
+    </mat-slider>
+    <br />
+    <label for="rating_slider"
+      >Rating from: {{ minRating }} to {{ maxRating }}</label
+    ><br />
+    <mat-slider
+      id="rating_slider"
+      [min]="getMinRating()"
+      [max]="getMaxRating()"
+      step="0.1"
+    >
+      <input
+        matSliderStartThumb
+        [(ngModel)]="minRating"
+        (ngModelChange)="onSelectMinRating()"
+      />
+      <input
+        matSliderEndThumb
+        [(ngModel)]="maxRating"
+        (ngModelChange)="onSelectMaxRating()"
+      />
+    </mat-slider>
+  </div>
+</div>

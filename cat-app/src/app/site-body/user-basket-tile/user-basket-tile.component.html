@@ -1,0 +1,49 @@
+<div id="ubContainer">
+  <div
+    id="logInView"
+    [ngStyle]="{
+      display: this.userService.loggedIn ? 'none' : 'block'
+    }"
+  >
+    <div class="topMessage">You're not logged in</div>
+    <div class="else">
+      <div class="info">
+        <div class="itemCount">In basket: {{ this.bCount }}</div>
+        <div class="totalPrice">Price: {{ this.userService.totalPrice }}</div>
+      </div>
+      <div class="basketControls">
+        <button class="basketButton" routerLink="Basket">Basket</button>
+        <div class="currencySelector"></div>
+      </div>
+    </div>
+    <div id="lBts">
+      <button id="loginButton" (click)="this.showLogin()">
+        Log In / Register
+      </button>
+    </div>
+  </div>
+  <div
+    id="userView"
+    [ngStyle]="{
+      display: this.userService.loggedIn ? 'block' : 'none'
+    }"
+  >
+    <div class="topMessage">Welcome {{ this.userService.login }}</div>
+    <div class="else">
+      <div class="info">
+        <div class="itemCount">In basket: {{ this.bCount }}</div>
+        <div class="totalPrice">Price: {{ this.userService.totalPrice }}</div>
+      </div>
+      <div class="basketControls">
+        <button class="basketButton" routerLink="Basket">Basket</button>
+        <div class="currencySelector"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-login-popup
+  [ngStyle]="{
+    display: this.userService.loggedIn ? 'block' : 'none'
+  }"
+  id="alp"
+></app-login-popup>

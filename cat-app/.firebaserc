@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "cat-app-a7ea7"
+  },
+  "targets": {
+    "cat-app-a7ea7": {
+      "hosting": {
+        "cat-app": [
+          "cat-app-a7ea7"
+        ]
+      }
+    }
+  }
+}

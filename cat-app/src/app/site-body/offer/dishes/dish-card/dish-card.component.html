@@ -1,0 +1,30 @@
+<div class="dishcard">
+  <span>{{ dish.key | titlecase }} </span>
+  <span>Cuisine: {{ dish.value.cuisine | titlecase }} </span>
+  <img
+    class="img-fluid"
+    (click)="onClick()"
+    src="{{ photo_links[0] }}"
+    alt="photo"
+  />
+  <span class="price_span">{{ dish.value.price | number : "1.2-2" }} EUR</span>
+  <div class="inStock_label">
+    <span>In stock: {{ dish.value.inStock }}</span>
+    <span>In basket: {{ 0 }}</span>
+    <button
+      class="minus_button"
+      (click)="onMinusClick()"
+      [disabled]="!this.isMinusButtonVisible"
+    >
+      -
+    </button>
+    <button
+      class="plus_button"
+      (click)="onPlusClick()"
+      [disabled]="!this.isPlusButtonVisible"
+    >
+      +
+    </button>
+  </div>
+  <button id="delete_button" (click)="deleteComponent()">Delete</button>
+</div>

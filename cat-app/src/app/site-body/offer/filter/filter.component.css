@@ -1,0 +1,19 @@
+#filter_container {
+  display: block;
+  width: 15%;
+  float: left;
+  color: white;
+  padding: 30px;
+}
+
+#price_slider > .input {
+  background-color: red !important;
+}
+
+.mat-slider-thumb-label {
+  background-color: red !important;
+}
+
+.mat-slider-thumb {
+  background-color: red !important;
+}

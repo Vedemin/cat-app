@@ -1,0 +1,16 @@
+<div id="offer_container">
+  <app-filter></app-filter>
+  <app-dishes
+    (listUpdate)="updateDishList($event)"
+    [dishList_filtered]="
+      dishListService.getDishes()
+        | keyvalue
+        | searchFilter : filterService.query
+        | isMeatIncluded : filterService.selectedMeatInclusion
+        | cuisineFilter : filterService.selectedTypesOfCuisine
+        | mealTypeFilter : filterService.selectedTypesOfMeals
+        | priceFilter : filterService.minPrice : filterService.maxPrice
+        | ratingFilter : filterService.minRating : filterService.maxRating
+    "
+  ></app-dishes>
+</div>

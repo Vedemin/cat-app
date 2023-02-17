@@ -1,0 +1,243 @@
+{
+  "dishes": {
+    "1": {
+      "name": "Sushi Platter",
+      "cuisine": "Japanese",
+      "meat": "seafood included",
+      "type": "main course",
+      "ingredients": [
+        "sushi rice",
+        "nori seaweed",
+        "raw fish",
+        "avocado",
+        "cucumber",
+        "wasabi",
+        "soy sauce"
+      ],
+      "inStock": "8",
+      "currency": "USD",
+      "price": "15.99",
+      "description": "A traditional Japanese dish made with a variety of sushi rolls, including raw fish, avocado, and cucumber, served with wasabi and soy sauce for dipping.",
+      "photo_links": [
+        "https://sushieatstation.com/wp-content/uploads/2022/09/HeaderCupcakes3.jpeg"
+      ],
+      "rating": "4.7"
+    },
+    "2": {
+      "name": "Peking Duck",
+      "cuisine": "chinese",
+      "meat": "meat included",
+      "type": "main course",
+      "ingredients": [
+        "duck",
+        "hoisin sauce",
+        "scallions",
+        "cucumber",
+        "steamed pancakes"
+      ],
+      "inStock": "6",
+      "currency": "USD",
+      "price": "22.99",
+      "description": "A traditional Chinese dish made with crispy, roasted duck served with hoisin sauce, scallions, cucumber and steamed pancakes for wrapping.",
+      "photo_links": [
+        "https://more.ctv.ca/content/dam/lifestyle/uploadImg/2020/3/6/peking-duck.jpg"
+      ],
+      "rating": "4.9"
+    },
+    "3": {
+      "name": "Pork steak with potatoes and cabbage",
+      "cuisine": "polish",
+      "meat": "meat included",
+      "type": "second dish",
+      "ingredients": ["pork steak", "potatoes", "cabbage"],
+      "inStock": "6",
+      "currency": "EUR",
+      "price": "10",
+      "description": "This delicious Polish dish features a tender pork steak served alongside tender, crispy cabbage and creamy, buttery potatoes. The flavors of the meat and vegetables are perfectly balanced, making it a hearty and satisfying meal. Enjoy the rich taste of this traditional dish with a glass of red wine for a truly authentic experience.",
+      "photo_links": [
+        "https://lh3.googleusercontent.com/FzqYcwT4GnRZuQWst_V8pX3JjGLyWZW6_9KscHxClbYzxR_infUpOwBNAA7q_1y4k8-SbkFJIZV4uRBqikBE=w1920-h1080-c-rj-v1-e365"
+      ],
+      "rating": "4.00"
+    },
+    "4": {
+      "name": "Chicken with feta cheese",
+      "cuisine": "greek",
+      "meat": "meat included",
+      "type": "second dish",
+      "ingredients": ["chicken", "feta cheese", "batats", "raspuntzel"],
+      "inStock": "20",
+      "currency": "EUR",
+      "price": "7",
+      "description": "Introducing our Greek-inspired dish, Chicken with Feta Cheese. This second dish is made with succulent chicken, tangy feta cheese, and paired with the sweetness of batats and a hint of raspuntzel. With 20 portions available and priced at 7 EUR, this dish is a delicious and affordable option. Take a look at the photo link provided to see the dish's crispy-skinned and mouth-watering presentation.",
+      "photo_links": [
+        "https://theoxfordmagazine.com/wp-content/uploads/crispy-skinned-chicken-with-butternut-squash-and-feta-recipe-01-1920x1080-1.jpg"
+      ],
+      "rating": "3.87"
+    },
+    "5": {
+      "name": "tomato soup with noodles",
+      "cuisine": "polish",
+      "meat": "vegan",
+      "type": "soup",
+      "ingredients": ["tomatoes", "noodles", "sour cream"],
+      "inStock": "18",
+      "currency": "EUR",
+      "price": "3",
+      "description": "djejdboadnpanifpninfopenfpeonfpeonfoenfoenfoenfoenfoenf",
+      "photo_links": [
+        "https://i.pinimg.com/originals/7a/b6/cb/7ab6cbeac90fe2b67b03eb2827afd29f.jpg",
+        "https://recipes.net/wp-content/uploads/2020/03/copycat-friendlys-ultimate-grilled-cheese-and-tomato-soup-recipes.jpg"
+      ],
+      "rating": "4.87"
+    },
+    "6": {
+      "name": "lasagna with meat and vegetables",
+      "cuisine": "italian",
+      "meat": "meat included",
+      "type": "second dish",
+      "ingredients": [
+        "lasagna noodles",
+        "ground beef",
+        "onions",
+        "bell peppers",
+        "tomato sauce",
+        "mozzarella cheese"
+      ],
+      "inStock": "8",
+      "currency": "EUR",
+      "price": "8.99",
+      "description": "A classic Italian dish made with layers of pasta, meat, vegetables, and cheese.",
+      "photo_links": [
+        "https://www.buonapappa.net/wp-content/uploads/2019/03/Zucchini-Lasagne4.jpg"
+      ],
+      "rating": "4.5"
+    },
+    "7": {
+      "name": "chicken tikka masala",
+      "cuisine": "indian",
+      "meat": "meat included",
+      "type": "second dish",
+      "ingredients": [
+        "chicken breast",
+        "coriander powder",
+        "cumin powder",
+        "garam masala",
+        "ginger",
+        "garlic",
+        "tomatoes",
+        "heavy cream"
+      ],
+      "inStock": "12",
+      "currency": "EUR",
+      "price": "6.99",
+      "description": "A popular Indian dish made with marinated chicken cooked in a flavorful tomato-based sauce.",
+      "photo_links": [
+        "https://truffle-assets.imgix.net/pxqrocxwsjcc_5RjjS2gh8WAisowkgUCy6Q_Chicken-Tikka-Masala_landscapeThumbnail_en-US.jpeg"
+      ],
+      "rating": "4.8"
+    },
+    "8": {
+      "name": "Beef Stroganoff",
+      "cuisine": "Russian",
+      "meat": "meat included",
+      "type": "second dish",
+      "ingredients": [
+        "beef",
+        "onion",
+        "mushrooms",
+        "sour cream",
+        "flour",
+        "butter"
+      ],
+      "inStock": "10",
+      "currency": "EUR",
+      "price": "8",
+      "description": "This traditional Russian dish consists of sautéed beef and onions in a sour cream sauce served over egg noodles or rice.",
+      "photo_links": [
+        "https://cdn.sanity.io/images/p6oh2x2n/production/c20c48854f3d836b07379c318fc978697b59166e-1920x1080.png"
+      ],
+      "rating": "4.5"
+    },
+    "9": {
+      "name": "Paella",
+      "cuisine": "Spanish",
+      "meat": "meat included",
+      "type": "second dish",
+      "ingredients": [
+        "saffron",
+        "chicken",
+        "seafood",
+        "rice",
+        "onion",
+        "bell pepper",
+        "tomato"
+      ],
+      "inStock": "12",
+      "currency": "EUR",
+      "price": "9",
+      "description": "Paella is a traditional Spanish dish made with saffron-flavored rice, chicken, seafood, and vegetables. It is typically cooked in a large, shallow pan and served as a main course.",
+      "photo_links": [
+        "https://mediavine-res.cloudinary.com/image/upload/s--x1oxYMz6--/c_limit,f_auto,fl_lossy,h_1080,q_auto,w_1920/v1590889856/iiluc5mwa4bbggnru7ia.jpg"
+      ],
+      "rating": "4.8"
+    },
+    "10": {
+      "name": "pad thai",
+      "cuisine": "thai",
+      "meat": "meat included",
+      "type": "second dish",
+      "ingredients": [
+        "rice noodles",
+        "peanut sauce",
+        "chicken",
+        "shrimp",
+        "bean sprouts",
+        "scallions",
+        "egg"
+      ],
+      "inStock": "10",
+      "currency": "EUR",
+      "price": "8.50",
+      "description": "A classic Thai dish made with rice noodles, a flavorful peanut sauce, and a combination of proteins like chicken and shrimp. Served with bean sprouts and scallions for added texture and flavor.",
+      "photo_links": [
+        "http://international-vegan.com/wp-content/uploads/2015/12/pad-thai-recipe-vegetarian.jpg"
+      ],
+      "rating": "4.5"
+    },
+    "11": {
+      "name": "chiles en nogada",
+      "cuisine": "mexican",
+      "meat": "meat included",
+      "type": "second dish",
+      "ingredients": [
+        "poblano peppers",
+        "ground beef",
+        "fruit",
+        "walnut sauce",
+        "pomegranate seeds"
+      ],
+      "inStock": "6",
+      "currency": "EUR",
+      "price": "12",
+      "description": "A traditional Mexican dish made with poblano peppers filled with a mixture of ground beef and fruit, topped with a creamy walnut sauce and garnished with pomegranate seeds.",
+      "photo_links": [
+        "https://webcamsdemexico.com/wp-content/uploads/2021/08/Chiles-en-nogada.jpg"
+      ],
+      "rating": "4.75"
+    }
+  },
+  "users": {
+    "admin": {
+      "password": "admin",
+      "isAdmin": true,
+      "basket": [],
+      "previousBaskets": []
+    },
+    "carlos": {
+      "password": "carlos",
+      "isAdmin": false,
+      "basket": [],
+      "previousBaskets": []
+    }
+  }
+}

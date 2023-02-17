@@ -1,0 +1,21 @@
+<div id="dishes_container">
+  <div class="row">
+    <pagination-controls
+      class="pag"
+      (pageChange)="p = $event"
+    ></pagination-controls>
+    <ng-container
+      *ngFor="
+        let dish of dishList_filtered
+          | paginate : { itemsPerPage: 3, currentPage: p }
+      "
+    >
+      <app-dish-card
+        class="dc col-md-3"
+        (orderUpdate)="updateOrder($event)"
+        (deleteEmitter)="deleteCard($event)"
+        [dish]="dish"
+      ></app-dish-card>
+    </ng-container>
+  </div>
+</div>
