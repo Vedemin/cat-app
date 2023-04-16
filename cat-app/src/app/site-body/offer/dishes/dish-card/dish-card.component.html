@@ -1,4 +1,9 @@
-<div class="dishcard">
+<div
+  class="dishcard"
+  [ngStyle]="{
+    'background-color': dish.value.inStock > 0 ? 'antiquewhite' : 'grey'
+  }"
+>
   <span>{{ dish.key | titlecase }} </span>
   <span>Cuisine: {{ dish.value.cuisine | titlecase }} </span>
   <img

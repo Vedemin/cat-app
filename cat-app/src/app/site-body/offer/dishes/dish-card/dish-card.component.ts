@@ -45,19 +45,14 @@ export class DishCardComponent {
   onPlusClick() {
     if (this.dish.value.inStock != 0) {
       this.isMinusButtonVisible = true
-      console.log({key:this.dish.key, character: "+"})
-      // this.orderUpdate.emit({key:this.key, name: this.name, character: "+"})
       this.userService.addToBasket(this.dish.key, this.price)
-      // this.basketService.
-      if (this.dish.value.inStock == 0)
+      if (this.dish.value.inStock <= this.userService.basket[this.dish.key].amount)
         this.isPlusButtonVisible = false
     }
   }
 
   onMinusClick() {
       this.isPlusButtonVisible = true
-      console.log({key:this.key, name: this.name, character: "-"})
-      // this.orderUpdate.emit({key:this.key, name: this.name, character: "-"})
       let a = this.userService.removeFromBasket(this.dish.key)
       if (a == 0)
         this.isMinusButtonVisible = false
